@@ -1,0 +1,15 @@
+{
+  "live_ask_result": {
+    "intent": "TOKEN_TOTAL_SUPPLY_VERIFY_GENERAL",
+    "status": 200,
+    "payer": "0x709D05a45Df8fc2619D807eeBE0fE3b5a2DB3148",
+    "miner_id": "20260828",
+    "miner_name": "PREFLIGHT Infrastructure Signals",
+    "total_supply": 44366022786.09322,
+    "cost_usd": 0.01,
+    "signal_hash": "0x2b6f9c33ee49538fbbe464d282fcc912438c85895d80af7b09b77807d0479aee",
+    "receipt_hash": "0x5cce57c8e358ab05035446d6046879da92de0bbac29689a03523872580d14c1e",
+    "epoch_id": 34,
+    "timestamp": 1795299816
+  }
+}

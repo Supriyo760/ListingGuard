@@ -14,17 +14,26 @@ This document records cryptographic evidence, verification trails, and reproduci
 
 ---
 
-### 2. Autonomous Purchase Verification Trail
+### 2. Autonomous Purchase Verification Trail (Live Sepolia Testnet)
 ListingGuard demonstrates genuine machine-to-machine micropayments via EIP-191 signatures:
 * **Protocol Endpoint:** `POST https://devnode.telegraphprotocol.com/engine/v1/ask`
 * **Authorization Scheme:** `escrow` (x402 version 2)
+* **Payer Address:** `0x709D05a45Df8fc2619D807eeBE0fE3b5a2DB3148`
+* **Deposit Tx (Sepolia):** [`0x71007f762e5b371d077212984c673c1dbc1b48ed411dcc794a503ad6cc86a94e`](https://sepolia.etherscan.io/tx/0x71007f762e5b371d077212984c673c1dbc1b48ed411dcc794a503ad6cc86a94e)
+* **Approve Tx (Sepolia):** [`0xf73fff732bfbab473437aa36f21e3dfd0b7d2fe7510e3097618c01129d9024d2`](https://sepolia.etherscan.io/tx/0xf73fff732bfbab473437aa36f21e3dfd0b7d2fe7510e3097618c01129d9024d2)
+* **Live Purchased Intent:** `TOKEN_TOTAL_SUPPLY_VERIFY_GENERAL`
+* **Serving Miner:** `PREFLIGHT Infrastructure Signals` (ID: `20260828` / `a1-preflight`)
+* **Receipt Hash:** `0x5cce57c8e358ab05035446d6046879da92de0bbac29689a03523872580d14c1e`
+* **Signal Hash:** `0x2b6f9c33ee49538fbbe464d282fcc912438c85895d80af7b09b77807d0479aee`
+* **Epoch ID:** `34`
+* **Cost:** `10000 uUSDC` ($0.01)
 * **Receipt Proof Inspection:**
   ```http
-  GET https://devnode.telegraphprotocol.com/v1/blocks/{epochId}/deliveries/{receiptHash}
+  GET https://devnode.telegraphprotocol.com/v1/blocks/34/deliveries/0x5cce57c8e358ab05035446d6046879da92de0bbac29689a03523872580d14c1e
   ```
 * **Signal Audit:**
   ```http
-  GET https://devnode.telegraphprotocol.com/engine/v1/signal/{signalHash}
+  GET https://devnode.telegraphprotocol.com/engine/v1/signal/0x2b6f9c33ee49538fbbe464d282fcc912438c85895d80af7b09b77807d0479aee
   ```
 
 ---
