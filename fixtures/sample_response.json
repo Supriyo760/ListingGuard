@@ -1,0 +1,29 @@
+{
+  "_note": "Redacted fixture of a live Telegraph node response. Populated when running live paid asks.",
+  "sample_ask": {
+    "miner_id": "0xminer_sepolia_sample",
+    "miner_name": "Sample Ranked Miner",
+    "result_shape": "intent",
+    "field_status": {
+      "total_supply": "ok"
+    },
+    "result": {
+      "total_supply": "34190831102.58"
+    },
+    "cost_usd": 0.01,
+    "duration_ms": 1420,
+    "intent": "TOKEN_TOTAL_SUPPLY_VERIFY_GENERAL",
+    "signal_hash": "0xabcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890",
+    "fulfillment": {
+      "status": "complete",
+      "payments": [
+        {
+          "miner": "0xminer_sepolia_sample",
+          "intent": "TOKEN_TOTAL_SUPPLY_VERIFY_GENERAL",
+          "amount_uusdc": 10000,
+          "receipt_hash": "0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+        }
+      ]
+    }
+  }
+}
