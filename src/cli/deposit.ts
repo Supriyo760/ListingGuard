@@ -80,8 +80,9 @@ async function main() {
   });
   console.log(`Test USDC Balance  : ${formatUnits(rawUsdcBalance, 6)} USDC`);
 
-  // Parse amount from args or default to 5 USDC
-  const amountArg = process.argv[2] ? parseFloat(process.argv[2]) : 5.0;
+  // Parse amount from args or default to user balance (up to 5 USDC) or 1 USDC
+  const availableUsdcNum = parseFloat(formatUnits(rawUsdcBalance, 6));
+  let amountArg = process.argv[2] ? parseFloat(process.argv[2]) : (availableUsdcNum >= 1 ? Math.min(availableUsdcNum, 5.0) : 1.0);
   const amountUnits = parseUnits(String(amountArg), 6);
 
   if (rawUsdcBalance < amountUnits) {
