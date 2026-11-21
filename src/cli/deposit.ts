@@ -22,6 +22,16 @@ const ERC20_ABI = [
     inputs: [{ name: "account", type: "address" }],
     outputs: [{ name: "", type: "uint256" }],
   },
+  {
+    name: "mint",
+    type: "function",
+    stateMutability: "nonpayable",
+    inputs: [
+      { name: "to", type: "address" },
+      { name: "amount", type: "uint256" },
+    ],
+    outputs: [],
+  },
 ] as const;
 
 const DIAMOND_ABI = [
@@ -72,7 +82,7 @@ async function main() {
   }
 
   // Check USDC balance
-  const rawUsdcBalance = await publicClient.readContract({
+  let rawUsdcBalance = await publicClient.readContract({
     address: usdcAddr,
     abi: ERC20_ABI,
     functionName: "balanceOf",
@@ -80,9 +90,30 @@ async function main() {
   });
   console.log(`Test USDC Balance  : ${formatUnits(rawUsdcBalance, 6)} USDC`);
 
+  // If wallet has 0 USDC, auto-mint 5 test USDC using the public mint() function
+  if (rawUsdcBalance === 0n) {
+    console.log("\nUSDC balance is 0. Auto-minting 5 test USDC via contract...");
+    try {
+      const mintTx = await walletClient.writeContract({
+        address: usdcAddr,
+        abi: ERC20_ABI,
+        functionName: "mint",
+        args: [account.address, parseUnits("5", 6)],
+      });
+      console.log(`Mint tx submitted: ${mintTx}`);
+      await publicClient.waitForTransactionReceipt({ hash: mintTx });
+      console.log("5 test USDC minted successfully!");
+      rawUsdcBalance = parseUnits("5", 6);
+    } catch (mintErr: any) {
+      console.log("Auto-mint note:", mintErr.message);
+    }
+  }
+
   // Parse amount from args or default to user balance (up to 5 USDC) or 1 USDC
   const availableUsdcNum = parseFloat(formatUnits(rawUsdcBalance, 6));
-  let amountArg = process.argv[2] ? parseFloat(process.argv[2]) : (availableUsdcNum >= 1 ? Math.min(availableUsdcNum, 5.0) : 1.0);
+  let amountArg = process.argv[2]
+    ? parseFloat(process.argv[2])
+    : (availableUsdcNum >= 1 ? Math.min(availableUsdcNum, 5.0) : 1.0);
   const amountUnits = parseUnits(String(amountArg), 6);
 
   if (rawUsdcBalance < amountUnits) {
