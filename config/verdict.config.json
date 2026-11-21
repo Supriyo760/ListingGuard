@@ -1,0 +1,24 @@
+{
+  "_note": "Placeholder thresholds. Tune with the backtest, then freeze before the final reported run. Do not hardcode thresholds elsewhere.",
+  "sanctions": { "reviewScore": 0.85 },
+  "security": {
+    "rejectCount": 5,
+    "reviewCount": 1,
+    "rejectVerdicts": ["critical", "unsafe", "malicious", "high risk", "fail"],
+    "reviewVerdicts": ["warning", "medium", "medium risk", "caution", "needs review"]
+  },
+  "concentration": { "reject": 0.5, "review": 0.2 },
+  "wash": { "rejectPct": 40, "reviewPct": 15,
+            "rejectVerdicts": ["wash trading", "likely wash trading"],
+            "reviewVerdicts": ["suspicious", "possible wash trading"] },
+  "social": { "reviewScore": 0.7, "reviewVerdicts": ["bot", "likely_bot"] },
+  "holders": { "minReview": 100 },
+  "codeReview": { "reviewVerdicts": ["Request changes"] },
+  "defaults": {
+    "perAskBudgetMicro": 30000,
+    "deadlineMs": 20000,
+    "concurrency": 6,
+    "memoBudgetUsd": 1.0
+  },
+  "unknownVerdictStringsAre": "review"
+}

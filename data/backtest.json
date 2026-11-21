@@ -1,0 +1,114 @@
+{
+  "_note": "Real mainnet tokens with documented public outcomes and source links. Cases with verified:true are included in evaluation metrics.",
+  "cases": [
+    {
+      "id": "usdc",
+      "chain": "ethereum",
+      "tokenAddress": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+      "label": "good",
+      "expected": "LIST",
+      "disclosedWallets": [],
+      "teamNames": [],
+      "socialHandle": "circle",
+      "repoUrl": "https://github.com/circlefin/stablecoin-evm",
+      "source": "https://etherscan.io/token/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+      "verified": true
+    },
+    {
+      "id": "weth",
+      "chain": "ethereum",
+      "tokenAddress": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      "label": "good",
+      "expected": "LIST",
+      "disclosedWallets": [],
+      "teamNames": [],
+      "socialHandle": null,
+      "repoUrl": null,
+      "source": "https://etherscan.io/token/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      "verified": true
+    },
+    {
+      "id": "uni",
+      "chain": "ethereum",
+      "tokenAddress": "0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984",
+      "label": "good",
+      "expected": "LIST",
+      "disclosedWallets": [],
+      "teamNames": ["Hayden Adams"],
+      "socialHandle": "Uniswap",
+      "repoUrl": "https://github.com/Uniswap/v3-core",
+      "source": "https://etherscan.io/token/0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984",
+      "verified": true
+    },
+    {
+      "id": "link",
+      "chain": "ethereum",
+      "tokenAddress": "0x514910771AF9Ca656af840dff83E8264EcF986CA",
+      "label": "good",
+      "expected": "LIST",
+      "disclosedWallets": [],
+      "teamNames": ["Sergey Nazarov"],
+      "socialHandle": "chainlink",
+      "repoUrl": "https://github.com/smartcontractkit/chainlink",
+      "source": "https://etherscan.io/token/0x514910771AF9Ca656af840dff83E8264EcF986CA",
+      "verified": true
+    },
+    {
+      "id": "aave",
+      "chain": "ethereum",
+      "tokenAddress": "0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9",
+      "label": "good",
+      "expected": "LIST",
+      "disclosedWallets": [],
+      "teamNames": ["Stani Kulechov"],
+      "socialHandle": "aave",
+      "repoUrl": "https://github.com/aave/aave-v3-core",
+      "source": "https://etherscan.io/token/0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9",
+      "verified": true
+    },
+    {
+      "id": "anubis_dao_rug",
+      "chain": "ethereum",
+      "tokenAddress": "0xB2ED12F121995cB55dDfc2F268d1901AEC05a8dE",
+      "label": "bad",
+      "expected": "REJECT",
+      "disclosedWallets": [
+        {
+          "label": "Deployer",
+          "address": "0xd4294b2a8d3840742f10b72047805ea2cf1a9cf0"
+        }
+      ],
+      "teamNames": ["Sisyphus"],
+      "socialHandle": "AnubisDAO",
+      "repoUrl": null,
+      "source": "https://rekt.news/anubis-rekt/",
+      "verified": true
+    },
+    {
+      "id": "eminence_exploit",
+      "chain": "ethereum",
+      "tokenAddress": "0x5ade7aE8660293F2ebfcEfaba91d141d72d221e8",
+      "label": "bad",
+      "expected": "REJECT",
+      "disclosedWallets": [],
+      "teamNames": [],
+      "socialHandle": null,
+      "repoUrl": null,
+      "source": "https://rekt.news/eminence-rekt/",
+      "verified": true
+    },
+    {
+      "id": "cream_finance_hack",
+      "chain": "ethereum",
+      "tokenAddress": "0x2ba592f78db6436527729929aaf6c908497cb200",
+      "label": "bad",
+      "expected": "REJECT",
+      "disclosedWallets": [],
+      "teamNames": [],
+      "socialHandle": "CreamdotFinance",
+      "repoUrl": null,
+      "source": "https://rekt.news/cream-finance-rekt-2/",
+      "verified": true
+    }
+  ]
+}
