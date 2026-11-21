@@ -9,7 +9,23 @@ dotenv.config();
 const EnvSchema = z.object({
   PRIVATE_KEY: z
     .string()
-    .regex(/^0x[a-fA-F0-9]{64}$/, "PRIVATE_KEY must be a 32-byte hex string starting with 0x")
+    .transform((val) => {
+      let cleaned = val.trim().replace(/^["']|["']$/g, "").trim();
+      if (cleaned.startsWith("0xYOUR_") || cleaned.includes("YOUR_THROWAWAY")) {
+        throw new Error(
+          "PRIVATE_KEY still has placeholder text. Please paste your actual 64-character burner private key in .env"
+        );
+      }
+      if (/^[a-fA-F0-9]{64}$/.test(cleaned)) {
+        cleaned = "0x" + cleaned;
+      }
+      return cleaned;
+    })
+    .pipe(
+      z
+        .string()
+        .regex(/^0x[a-fA-F0-9]{64}$/, "PRIVATE_KEY must be a 64-character hex string starting with 0x (e.g. 0xabcdef...)")
+    )
     .optional(),
   TELEGRAPH_NODE: z.string().url().default("https://devnode.telegraphprotocol.com"),
   SEPOLIA_RPC: z.string().url().default("https://ethereum-sepolia-rpc.publicnode.com"),
