@@ -7,7 +7,7 @@ This document records cryptographic evidence, verification trails, and reproduci
 ### 1. Mandatory Submission Checklist
 - [x] **Track:** Apps & Agents
 - [x] **Mission:** Mission 01 — Exchange (Autonomous Listings Desk)
-- [x] **Official Bounties Repo Starred:** `https://github.com/telegraphprotocol/bounties`
+- [x] **Official Bounties Repo Starred:** `https://github.com/telegraphprotocol/bounties` (Starred by `@Supriyo760`)
 - [x] **Testnet Escrow Contract:** `0x72a70e949362670Bf8bceAd24eFC5b8f950aa08b` (Diamond on Ethereum Sepolia)
 - [x] **Testnet USDC Token:** `0xcc194e1a843B658526D0D5C431f670028582Ae17`
 - [x] **Reproducible Without Proprietary State:** Yes (`npm install && npm test && npm run dev`)
