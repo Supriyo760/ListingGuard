@@ -16,6 +16,11 @@ const EnvSchema = z.object({
           "PRIVATE_KEY still has placeholder text. Please paste your actual 64-character burner private key in .env"
         );
       }
+      if (/^0x[a-fA-F0-9]{40}$/i.test(cleaned)) {
+        throw new Error(
+          "You pasted a public wallet address (42 chars) into PRIVATE_KEY. PRIVATE_KEY must be your 64-character secret private key (e.g. 0x1214e1a7...)."
+        );
+      }
       if (/^[a-fA-F0-9]{64}$/.test(cleaned)) {
         cleaned = "0x" + cleaned;
       }
